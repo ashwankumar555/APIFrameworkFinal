@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bdd</groupId>
+  <artifactId>APIFramework</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+ <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.9.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>cucumber-jvm-example</projectName>
+                            <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified -->
+                            <skip>false</skip>
+                            <!-- output directory for the generated report -->
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <!-- optional, defaults to outputDirectory if not specified -->
+                            <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            
+                            <!-- optional, set true to group features by its Ids -->
+                            <mergeFeaturesById>false</mergeFeaturesById>
+                            <!-- optional, set true to get a final report with latest results of the same test from different test runs -->
+                            <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
+                            <!-- optional, set true to fail build on test failures -->
+                            <checkBuildResult>false</checkBuildResult>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+	<dependency>
+	    <groupId>io.rest-assured</groupId>
+	    <artifactId>rest-assured</artifactId>
+	    <version>5.4.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+    	<groupId>com.fasterxml.jackson.core</groupId>
+    	<artifactId>jackson-databind</artifactId>
+    	<version>2.19.0</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>io.rest-assured</groupId>
+        <artifactId>json-path</artifactId>
+        <version>5.4.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+
+	<dependency>
+    	<groupId>io.cucumber</groupId>
+    	<artifactId>cucumber-java</artifactId>
+    	<version>7.18.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+	<dependency>
+    	<groupId>io.cucumber</groupId>
+    	<artifactId>cucumber-junit</artifactId>
+    	<version>7.18.0</version>
+    	<scope>test</scope>
+	</dependency>
+
+    <dependency>
+    	<groupId>org.seleniumhq.selenium</groupId>
+    	<artifactId>selenium-java</artifactId>
+    	<version>4.26.0</version>
+    </dependency>
+    
+    <dependency>
+    	<groupId>io.github.bonigarcia</groupId>
+    	<artifactId>webdrivermanager</artifactId>
+    	<version>5.4.1</version>
+    </dependency>
+    
+        
+    
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.36</version>
+    </dependency>
+ 
+    <!-- Logback Classic (SLF4J binding) -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.6</version>
+    </dependency>
+    <dependency>
+    <groupId>com.microsoft.edge</groupId>
+    <artifactId>msedge-selenium-tools-java</artifactId>
+    <version>3.141.0</version>
+              </dependency>
+    <!-- Logback Core -->
+    
+    <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+      <version>32.1.2-jre</version> <!-- or latest -->
+              </dependency>
+          
+ 
+  <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
+
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest</artifactId>
+		    <version>2.2</version>
+		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy -->
+	<dependency>
+    	<groupId>org.codehaus.groovy</groupId>
+    	<artifactId>groovy</artifactId>
+    	<version>3.0.24</version>
+	</dependency>
+	    <!-- ✅ HTTP client for Java 11+ -->
+    <dependency>
+        <groupId>org.apache.httpcomponents.client5</groupId>
+        <artifactId>httpclient5</artifactId>
+        <version>5.3.1</version>
+    </dependency>
+
+    <!-- ✅ SLF4J binding to fix logging warnings -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.12</version>
+    </dependency>
+  
+  <!--dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.9.0</version>
+    <scope>test</scope>
+  </dependency-->
+  </dependencies>
+
+</project>
