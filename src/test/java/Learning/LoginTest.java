@@ -1,17 +1,33 @@
 package Learning;
 
-import io.qameta.allure.junit4.AllureJunit4;
-
-import org.junit.Rule;
+import io.qameta.allure.*;
 import org.junit.Test;
 
+@Epic("User Management")
+@Feature("Login Feature")
 public class LoginTest {
 
-    @Rule
-    public AllureJunit4 allure = new AllureJunit4(); // ✅ CORRECT: implements TestRule
+    @Test
+    @Story("Successful Login")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner("qa.team")
+    @Description("Login with valid credentials")
+    public void validLoginTest() {
+        Allure.step("Open login page");
+        Allure.step("Enter username and password");
+        Allure.step("Click login button");
+        System.out.println("Login successful!");
+    }
 
     @Test
-    public void sampleTest() {
-        System.out.println("This is a test that should show up in Allure.");
+    @Story("Failed Login")
+    @Severity(SeverityLevel.MINOR)
+    @Owner("qa.team")
+    @Description("Login with invalid credentials")
+    public void invalidLoginTest() {
+        Allure.step("Open login page");
+        Allure.step("Enter invalid password");
+        Allure.step("Click login button");
+        System.out.println("Login failed!");
     }
 }
