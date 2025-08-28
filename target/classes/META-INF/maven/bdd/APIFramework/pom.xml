@@ -4,6 +4,8 @@
   <artifactId>APIFramework</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
+
+
  <build>
         <plugins>
             <plugin>
@@ -23,6 +25,12 @@
         <target>1.8</target>
     </configuration>
 </plugin>
+
+	<plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.11.2</version>
+      </plugin>
             
             
             <plugin>
@@ -61,6 +69,9 @@
             </plugin>
         </plugins>
     </build>
+    
+    
+
 
   <dependencies>
   <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -69,6 +80,12 @@
 	    <artifactId>rest-assured</artifactId>
 	    <version>5.4.0</version>
 	</dependency>
+	
+	<dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-testng</artifactId>
+        <version>2.24.0</version>
+    </dependency>
 	
 	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 	<dependency>
@@ -180,5 +197,4 @@
     <scope>test</scope>
   </dependency-->
   </dependencies>
-
 </project>
