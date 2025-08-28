@@ -40,9 +40,7 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile> <!-- optional -->
-                    </suiteXmlFiles>
+                    
                 </configuration>
                 <dependencies>
                     <dependency>
