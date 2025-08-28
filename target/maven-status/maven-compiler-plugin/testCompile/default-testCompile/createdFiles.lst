@@ -1,8 +1,0 @@
-pojo\AddPlaceSerialization.class
-resources\APIResources.class
-pojo\LocationClass.class
-resources\TestDataBuild.class
-resources\Utils.class
-stepDefinations\StepDefination.class
-cucumber\Options\TestRunner.class
-stepDefinations\Hooks.class
